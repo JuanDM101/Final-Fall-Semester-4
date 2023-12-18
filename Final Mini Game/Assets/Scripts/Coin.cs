@@ -4,23 +4,13 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {   
-    private AudioSource _coinAudio;
-
-    void Start()
-    {
-        _coinAudio
-    } 
     private void OnTriggerEnter(Collider other)
-    if(other.gameObject.CompareTag("Player"))
     {
+        if(other.gameObject.CompareTag("Player"))
+        {
         Debug.Log("Player collected the coin.");
         GameObject.Find("Canvas").GetComponent<UIManager>().UpdateCoinCount();
-        Destroy(this.gameOnject)
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Destroy(this.gameOnject);
+        }
     }
 }
