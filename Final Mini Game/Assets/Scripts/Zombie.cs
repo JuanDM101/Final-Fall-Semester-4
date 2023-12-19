@@ -14,13 +14,17 @@ public class NewBehaviourScript : MonoBehaviour
     {
         _zombieRb = GetComponent<Rigidbody>();
         _player = GameObject.Find("Player");
+        _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 lookDirection = (_player.transform.position - transform.position).normalised;
+        if (_gameManager.isGameActive)
+        {
+        Vector3 lookDirection = (_player.transform.position - transform.position).normalized;
         _zombieRb.AddForce(lookDirection * speed);
+        }
     }
     
     private void OnCollisionEnter(Collision otther)
@@ -28,6 +32,7 @@ public class NewBehaviourScript : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             Debug.Log("The Zombie hit the player!");
+            GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();
         }
     }
 }

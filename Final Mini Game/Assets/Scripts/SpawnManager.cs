@@ -50,7 +50,7 @@ public class SpawnManager : MonoBehaviour
 
         for(int i = 0; i < numberOfEnemies; i++)
         {
-            Instantiate(enemyObject, RandomSpawnPosition(), enemyObject.transform.rotation);
+            Instantiate(enemyObject, RandomSpawnPosition(), enemyObject.transform.rotation); 
         }
     }
 }

@@ -7,6 +7,7 @@ public class CameraController : MonoBehaviour
     public GameObject targetToFollow;
 
     private Vector3 _offset;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,6 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = target;
+        transform.position = targetToFollow.transform.position + _offset;
     }
 }
